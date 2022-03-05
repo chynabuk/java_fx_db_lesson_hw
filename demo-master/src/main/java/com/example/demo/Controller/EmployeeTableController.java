@@ -84,6 +84,7 @@ public class EmployeeTableController {
 
                 deleteButton.setOnAction(event -> removePerson(employee));
             }
+
         });
     }
 
