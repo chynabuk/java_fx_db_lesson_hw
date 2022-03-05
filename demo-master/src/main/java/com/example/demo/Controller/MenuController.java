@@ -35,7 +35,7 @@ public class MenuController {
         try{
             Stage stage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("departmentTable.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 730, 400);
+            Scene scene = new Scene(fxmlLoader.load(), 700, 600);
             stage.setTitle("База отделов");
             stage.setScene(scene);
             stage.show();
