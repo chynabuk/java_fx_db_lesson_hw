@@ -102,7 +102,7 @@ public class EmployeeCreateController {
                 Address.getText(),
                 Sex.getValue(),
                 Salary.getText(),
-                String.valueOf(Dnumber.getValue().getDnumber()));
+                Dnumber.getValue().getDnumber());
 
         openEmployeePage(actionEvent);
     }

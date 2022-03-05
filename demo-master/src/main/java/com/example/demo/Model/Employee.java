@@ -14,7 +14,7 @@ public class Employee {
     private StringProperty Sex;
     private DoubleProperty Salary;
     private StringProperty Super_ssn;
-    private IntegerProperty Dnumber;
+    private StringProperty Dnumber;
 
     public Employee(String fname,
                     String lname,
@@ -24,7 +24,7 @@ public class Employee {
                     String sex,
                     Double salary,
                     String super_ssn,
-                    int dnumber) {
+                    String dnumber) {
         Fname = new SimpleStringProperty(fname);
         Lname = new SimpleStringProperty(lname);
         Ssn = new SimpleStringProperty(ssn);
@@ -33,7 +33,7 @@ public class Employee {
         Sex = new SimpleStringProperty(sex);
         Salary = new SimpleDoubleProperty(salary);
         Super_ssn = new SimpleStringProperty(super_ssn);
-        Dnumber = new SimpleIntegerProperty(dnumber);
+        Dnumber = new SimpleStringProperty(dnumber);
     }
 
     public String getFname() {
@@ -132,15 +132,15 @@ public class Employee {
         this.Super_ssn.set(super_ssn);
     }
 
-    public int getDnumber() {
+    public String getDnumber() {
         return Dnumber.get();
     }
 
-    public IntegerProperty dnumberProperty() {
+    public StringProperty dnumberProperty() {
         return Dnumber;
     }
 
-    public void setDnumber(int dnumber) {
+    public void setDnumber(String dnumber) {
         this.Dnumber.set(dnumber);
     }
 }

@@ -1,6 +1,5 @@
 package com.example.demo.Controller;
 
-import com.example.demo.Connection.ConnectionClass;
 import com.example.demo.Main;
 import com.example.demo.Model.Department;
 import com.example.demo.Model.Employee;
@@ -20,11 +19,7 @@ import javafx.util.Callback;
 import javafx.util.StringConverter;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.time.LocalDate;
-import java.time.ZoneId;
 
 
 public class EmployeeEditController {
@@ -133,7 +128,7 @@ public class EmployeeEditController {
                 Address.getText(),
                 Sex.getValue(),
                 Salary.getText(),
-                String.valueOf(Dnumber.getValue().getDnumber()));
+                Dnumber.getValue().getDnumber());
 
         openEmployeePage(actionEvent);
     }

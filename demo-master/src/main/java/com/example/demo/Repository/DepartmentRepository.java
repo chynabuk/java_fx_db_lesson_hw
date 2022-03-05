@@ -30,7 +30,7 @@ public class DepartmentRepository {
                 while (resultSet.next()) {
                     Department department = new Department(
                             resultSet.getString("Dname"),
-                            resultSet.getInt("Dnumber"),
+                            resultSet.getString("Dnumber"),
                             resultSet.getString("Mgr_ssn"),
                             resultSet.getDate("Mgr_start_date")
                     );
@@ -61,7 +61,7 @@ public class DepartmentRepository {
                 while (resultSet.next()) {
                     Department dept = new Department(
                             resultSet.getString("Dname"),
-                            resultSet.getInt("Dnumber"),
+                            resultSet.getString("Dnumber"),
                             resultSet.getString("Mgr_ssn"),
                             resultSet.getDate("Mgr_start_date")
                     );
@@ -74,5 +74,46 @@ public class DepartmentRepository {
             e.printStackTrace();
         }
         return department;
+    }
+
+    public void deleteDepartment(Department department){
+        try {
+            Statement statement=connection.createStatement();
+            String sql = "DELETE FROM department WHERE Dnumber = '" + department.getDnumber() + "'";
+            statement.executeUpdate(sql);
+
+            System.out.println("Successfully deleted department with dnumber: " + department.getDnumber());
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void addDepartment(String Dname, String Dnumber, String Mgr_ssn, String Mgr_start_date){
+        try {
+            Statement statement=connection.createStatement();
+            String sql = "INSERT INTO " +
+                    "department(Dname, Dnumber, Mgr_ssn, Mgr_start_date) " +
+                    "VALUES ('"+Dname+"','" + Dnumber+"','" + Mgr_ssn+"','" + Mgr_start_date + "')";
+            statement.executeUpdate(sql);
+
+            System.out.println("Successfully created!");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateDepartment(String Dname, String Dnumber, String Mgr_ssn, String Mgr_start_date){
+        try {
+            Statement statement=connection.createStatement();
+            String sql = "UPDATE department SET Dname = '"+Dname+"', Mgr_ssn = '"+Mgr_ssn+"', Mgr_start_date = '"+Mgr_start_date+"' WHERE Dnumber = '"+Dnumber+"';";
+            statement.executeUpdate(sql);
+
+            System.out.println("Successfully updated!");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

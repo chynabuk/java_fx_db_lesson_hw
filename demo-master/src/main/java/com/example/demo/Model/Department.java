@@ -5,13 +5,13 @@ import java.util.Date;
 
 public class Department {
     private StringProperty Dname;
-    private IntegerProperty Dnumber;
+    private StringProperty Dnumber;
     private StringProperty Mgr_ssn;
     private ObjectProperty<Date> Mgr_start_date;
 
-    public Department(String dname, int dnumber, String mgr_ssn, Date mgr_start_date){
+    public Department(String dname, String dnumber, String mgr_ssn, Date mgr_start_date){
         Dname = new SimpleStringProperty(dname);
-        Dnumber = new SimpleIntegerProperty(dnumber);
+        Dnumber = new SimpleStringProperty(dnumber);
         Mgr_ssn = new SimpleStringProperty(mgr_ssn);
         Mgr_start_date = new SimpleObjectProperty<Date>(mgr_start_date);
     }
@@ -28,15 +28,15 @@ public class Department {
         this.Dname.set(dname);
     }
 
-    public int getDnumber() {
+    public String getDnumber() {
         return Dnumber.get();
     }
 
-    public IntegerProperty dnumberProperty() {
+    public StringProperty dnumberProperty() {
         return Dnumber;
     }
 
-    public void setDnumber(int dnumber) {
+    public void setDnumber(String dnumber) {
         this.Dnumber.set(dnumber);
     }
 

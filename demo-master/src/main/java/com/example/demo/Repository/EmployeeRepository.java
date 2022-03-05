@@ -1,6 +1,7 @@
 package com.example.demo.Repository;
 
 import com.example.demo.Connection.ConnectionClass;
+import com.example.demo.Model.Department;
 import com.example.demo.Model.Employee;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -37,7 +38,7 @@ public class EmployeeRepository {
                             resultSet.getString("Sex"),
                             resultSet.getDouble("Salary"),
                             resultSet.getString("Super_ssn"),
-                            resultSet.getInt("Dnumber")
+                            resultSet.getString("Dnumber")
                     );
                     list.add(employee);
                 }
@@ -48,6 +49,42 @@ public class EmployeeRepository {
             e.printStackTrace();
         }
         return list;
+    }
+
+    public Employee getBySsn(String Ssn){
+        Employee employee = null;
+        try {
+            Statement statement=connection.createStatement(
+                    ResultSet.TYPE_SCROLL_SENSITIVE,
+                    ResultSet.CONCUR_UPDATABLE);
+
+            String sql="SELECT * FROM employee WHERE Ssn = '"+Ssn+"' LIMIT 1;";
+
+            ResultSet resultSet=statement.executeQuery(sql);
+
+            if (resultSet.next()){
+                resultSet.previous();
+                while (resultSet.next()) {
+                    Employee empl = new Employee(
+                            resultSet.getString("Fname"),
+                            resultSet.getString("Lname"),
+                            resultSet.getString("Ssn"),
+                            resultSet.getDate("Bdate"),
+                            resultSet.getString("Address"),
+                            resultSet.getString("Sex"),
+                            resultSet.getDouble("Salary"),
+                            resultSet.getString("Super_ssn"),
+                            resultSet.getString("Dnumber")
+                    );
+                    employee = empl;
+                }
+            }else {
+                System.out.println("no data");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return employee;
     }
 
     public void deleteEmployee(Employee employee){
