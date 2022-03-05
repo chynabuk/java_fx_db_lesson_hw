@@ -8,10 +8,8 @@ public class ConnectionClass {
     public Connection connection = null;
 
     public Connection getConnection(){
-        //Ссылка для подключения к базе данных
         String url = "jdbc:mysql://localhost:3306/company";
 
-        //Имя пользователя и пароль для подключения к базе данных
         String username = "root";
 
         try {

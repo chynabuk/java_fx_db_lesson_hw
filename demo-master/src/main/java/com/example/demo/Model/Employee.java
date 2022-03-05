@@ -9,7 +9,7 @@ public class Employee {
     private StringProperty Fname;
     private StringProperty Lname;
     private StringProperty Ssn;
-    private ObjectProperty<Date> Bdate;;
+    private ObjectProperty<Date> Bdate;
     private StringProperty Address;
     private StringProperty Sex;
     private DoubleProperty Salary;
@@ -144,3 +144,4 @@ public class Employee {
         this.Dnumber.set(dnumber);
     }
 }
+
